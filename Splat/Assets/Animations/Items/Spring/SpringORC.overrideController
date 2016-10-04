@@ -1,0 +1,14 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: SpringORC
+  m_Controller: {fileID: 9100000, guid: 1bb1cdeae27d37c46ae6a249638d9819, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 9e2327181a47ddd49b146bbf4767e740, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9e2327181a47ddd49b146bbf4767e740, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 76b61be1fb311b944b7ac8ac6a33ae97, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 326fc946f5aa49e49a29667c3e4f599b, type: 2}
