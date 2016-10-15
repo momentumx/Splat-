@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Text.RegularExpressions;
 
 public class ButtonScript : MonoBehaviour {
 
@@ -7,10 +6,10 @@ public class ButtonScript : MonoBehaviour {
     public byte item;
     UnityEngine.UI.Text text;
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         text = transform.GetChild(0).GetComponent<UnityEngine.UI.Text>();
-        Sprite[] mysprite = Resources.LoadAll<Sprite>("spriteSheet");
-        GetComponent<UnityEngine.UI.Image>().sprite = mysprite[GameController.items[int.Parse(Regex.Match(gameObject.name, @"\d+").Value)]];
+        //this will change when i actually have teh items sprtie sheet
+        GetComponent<UnityEngine.UI.Image> ().sprite = Resources.LoadAll<Sprite>("spriteSheet") [ GameController.sprites [ GameController.indexes [ int.Parse ( System.Text.RegularExpressions.Regex.Match ( gameObject.name, @"\d+" ).Value )] ] ];
 	}
 
     void FixedUpdate()

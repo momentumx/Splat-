@@ -17,8 +17,9 @@ public class ItemScript : MonoBehaviour {
         GameObject balloon = GameObject.Find("Balloon");
         balloon.GetComponent<AudioSource>().PlayOneShot(soundFX);
         balloon.GetComponent<GameController>().ShakeCall(magnitude);
-        GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<Rigidbody2D> ().gravityScale = 0;
+        //the box cllider gets taken away in the animator
+        //die gets called in teh animator
     }
 
     public void Die()

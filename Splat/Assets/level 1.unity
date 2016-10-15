@@ -161,9 +161,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 132889649}
   - 212: {fileID: 132889648}
-  - 114: {fileID: 132889647}
   - 95: {fileID: 132889646}
   - 58: {fileID: 132889650}
+  - 114: {fileID: 132889647}
   m_Layer: 8
   m_Name: Normal
   m_TagString: Untagged
@@ -196,13 +196,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 132889645}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c1819f19942a3343a854624ca84f20c, type: 3}
+  m_Script: {fileID: 11500000, guid: c5ca763d355168a42a979574c663d9ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dir: 0.2
+  bothWays: 1
   soundFX: {fileID: 0}
   hurt: {fileID: 0}
-  myType: 2
 --- !u!212 &132889648
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -231,7 +231,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1543136693
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300008, guid: cc7c31a752f733144be35cf7c42a0a1a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -771,7 +771,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 276994453}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.2, y: -390.8, z: 0}
+  m_LocalPosition: {x: 22.2, y: -375.9, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -789,8 +789,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dir: 0
+  bothWays: 1
   soundFX: {fileID: 0}
-  hurt: {fileID: 0}
   myType: 0
 --- !u!95 &276994457
 Animator:
@@ -1041,7 +1041,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 323355284}
   - 212: {fileID: 323355283}
-  - 114: {fileID: 323355285}
   m_Layer: 0
   m_Name: mountains (1)
   m_TagString: Untagged
@@ -1095,18 +1094,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 439545267}
   m_RootOrder: 27
---- !u!114 &323355285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 323355282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95bed7b80e7effd4bae8b2b4edf5aede, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dir: -0.02
 --- !u!1 &380412659
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,7 +1152,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 380412659}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 35.4, y: -403.5, z: 0}
+  m_LocalPosition: {x: 35.4, y: -385, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -1183,8 +1170,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dir: 0
+  bothWays: 1
   soundFX: {fileID: 0}
-  hurt: {fileID: 0}
   myType: 0
 --- !u!95 &380412663
 Animator:
@@ -1226,8 +1213,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 418533394}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.257, y: -0.619, z: 0}
+  m_LocalScale: {x: 0.46934918, y: 0.46934918, z: 0.46934918}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1123851974}
@@ -1259,9 +1246,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_SortingLayerID: -1543136693
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 21300234, guid: bc7ba0da38f59f042a314002ce61fdff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1274,7 +1261,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 422009554}
   - 212: {fileID: 422009553}
-  - 114: {fileID: 422009555}
   m_Layer: 0
   m_Name: mountains
   m_TagString: Untagged
@@ -1328,18 +1314,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 439545267}
   m_RootOrder: 26
---- !u!114 &422009555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 422009552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95bed7b80e7effd4bae8b2b4edf5aede, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dir: -0.01
 --- !u!1 &439545266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1408,7 +1382,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 448726835}
   - 212: {fileID: 448726834}
-  - 114: {fileID: 448726836}
   m_Layer: 0
   m_Name: mountains (2)
   m_TagString: Untagged
@@ -1462,18 +1435,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 439545267}
   m_RootOrder: 28
---- !u!114 &448726836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 448726833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95bed7b80e7effd4bae8b2b4edf5aede, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dir: 0.01
 --- !u!1 &480306842
 GameObject:
   m_ObjectHideFlags: 0
@@ -1668,7 +1629,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 495716590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -60.8, y: -420.9, z: 0}
+  m_LocalPosition: {x: -60.8, y: -357.6, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -1686,8 +1647,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dir: 0
+  bothWays: 1
   soundFX: {fileID: 0}
-  hurt: {fileID: 0}
   myType: 0
 --- !u!95 &495716594
 Animator:
@@ -1927,8 +1888,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dir: 0
+  bothWays: 1
   soundFX: {fileID: 0}
-  hurt: {fileID: 0}
   myType: 0
 --- !u!95 &591136407
 Animator:
@@ -2079,7 +2040,7 @@ Animator:
   m_GameObject: {fileID: 908065699}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 07c880b8b5feb3c468b1fe1547e70f99, type: 2}
+  m_Controller: {fileID: 9100000, guid: db53892884cd50c4184a2d37f306264f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2482,7 +2443,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1000244078}
   - 212: {fileID: 1000244077}
-  - 114: {fileID: 1000244079}
   m_Layer: 0
   m_Name: mountains (3)
   m_TagString: Untagged
@@ -2536,18 +2496,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 439545267}
   m_RootOrder: 29
---- !u!114 &1000244079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1000244076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95bed7b80e7effd4bae8b2b4edf5aede, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dir: 0.02
 --- !u!1 &1023064342
 GameObject:
   m_ObjectHideFlags: 0
@@ -2796,7 +2744,7 @@ Animator:
   m_GameObject: {fileID: 1043995593}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 07c880b8b5feb3c468b1fe1547e70f99, type: 2}
+  m_Controller: {fileID: 9100000, guid: db53892884cd50c4184a2d37f306264f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2944,7 +2892,7 @@ Animator:
   m_GameObject: {fileID: 1076493168}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 07c880b8b5feb3c468b1fe1547e70f99, type: 2}
+  m_Controller: {fileID: 9100000, guid: db53892884cd50c4184a2d37f306264f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3030,7 +2978,7 @@ Animator:
   m_GameObject: {fileID: 1087811007}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 07c880b8b5feb3c468b1fe1547e70f99, type: 2}
+  m_Controller: {fileID: 9100000, guid: db53892884cd50c4184a2d37f306264f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3191,7 +3139,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1122772876}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -39.8, y: -376.1, z: 0}
+  m_LocalPosition: {x: -39.8, y: -372.8, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -3209,8 +3157,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dir: 0
+  bothWays: 1
   soundFX: {fileID: 0}
-  hurt: {fileID: 0}
   myType: 0
 --- !u!95 &1122772880
 Animator:
@@ -3385,8 +3333,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dir: 0
+  bothWays: 1
   soundFX: {fileID: 0}
-  hurt: {fileID: 0}
   myType: 0
 --- !u!1 &1129106037
 GameObject:
@@ -3433,7 +3381,7 @@ Animator:
   m_GameObject: {fileID: 1129106037}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 07c880b8b5feb3c468b1fe1547e70f99, type: 2}
+  m_Controller: {fileID: 9100000, guid: db53892884cd50c4184a2d37f306264f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3616,7 +3564,7 @@ Transform:
   m_GameObject: {fileID: 1217128544}
   m_LocalRotation: {x: 0.19765694, y: 0, z: 0, w: -0.9802713}
   m_LocalPosition: {x: -5.6614304, y: -294.8, z: 19.4}
-  m_LocalScale: {x: 12, y: 12, z: 1}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_LocalEulerAnglesHint: {x: -22.7999, y: 0, z: 0}
   m_Children:
   - {fileID: 1123851974}
@@ -3921,7 +3869,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1297753002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22, y: -372.5, z: 0}
+  m_LocalPosition: {x: 22, y: -363.9, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -3939,8 +3887,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dir: 0
+  bothWays: 1
   soundFX: {fileID: 0}
-  hurt: {fileID: 0}
   myType: 0
 --- !u!95 &1297753006
 Animator:
@@ -4549,8 +4497,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dir: 0
+  bothWays: 1
   soundFX: {fileID: 0}
-  hurt: {fileID: 0}
   myType: 0
 --- !u!95 &1615686122
 Animator:
@@ -4714,7 +4662,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1686575826}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.6, y: -382.7, z: 0}
+  m_LocalPosition: {x: -21.6, y: -365.5, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -4732,8 +4680,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dir: 0
+  bothWays: 1
   soundFX: {fileID: 0}
-  hurt: {fileID: 0}
   myType: 0
 --- !u!95 &1686575830
 Animator:
@@ -5114,8 +5062,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dir: 0
+  bothWays: 1
   soundFX: {fileID: 0}
-  hurt: {fileID: 0}
   myType: 0
 --- !u!95 &1815437581
 Animator:
@@ -5341,8 +5289,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dir: 0
+  bothWays: 1
   soundFX: {fileID: 0}
-  hurt: {fileID: 0}
   myType: 0
 --- !u!212 &1926329567
 SpriteRenderer:

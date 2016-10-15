@@ -4,16 +4,18 @@ using System.Collections.Generic;
 using System.Collections;
 
 public class GameController : MonoBehaviour {
-    struct Item {
-        public Animator animators;
+    public struct Item {
+        public Animator animator;
         public GameObject dropItem;
         public Sprite kingsItem;
     }
     Item[] allItems;
-    
-    public static byte[] items = { 114, 117, 113, 112, 115 };
+    //this will change when i actually have a spritesheet
+    static public byte[] sprites = {114,7,113,115,116,112,120,121,122,123,124,125};
+    static public byte[] indexes = {0,1,2,3,4};
+
     List<float> xs = new List<float>();
-    float speed, scale, shootSpeed = .8f, dis;
+    float speed, scale, shootSpeed = .8f, dis, starY;
     int stars = 3;
     static Animator anim;
     static Transform cursor, camer;
@@ -22,22 +24,27 @@ public class GameController : MonoBehaviour {
     public AudioClip error;
     public static byte currentItem;
     static bool drag, cooling;
+    SpriteRenderer kingItem;
+    const int starDist = 10;
 
 	// Use this for initialization
 	void Start () {
         allItems = new Item [ 5 ];
         sbyte i = -1; while ( ++i!=5 ) {
-            allItems[i].animators = GameObject.Find ( "Item" + i ).GetComponent<Animator> ();
-            allItems[i].dropItem = (GameObject)Resources.Load ( "items/Item" + currentItem );
-            allItems[i].kingsItem = GameObject.Find ( "Item" + i ).GetComponent<UnityEngine.UI.Image> ().sprite;
+            allItems[i].animator = GameObject.Find ( "Item" + indexes[i] ).GetComponent<Animator> ();
+            allItems[i].dropItem = (GameObject)Resources.Load ( "items/Item" + indexes [ i] );
+            allItems[i].kingsItem = GameObject.Find ( "Item" + indexes [ i] ).GetComponent<UnityEngine.UI.Image> ().sprite;
         }
         audioSource = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         camer = Camera.main.transform;
-        GameObject.Find("Item0").GetComponent<Animator>().SetBool("Pressed", true);
+        allItems[0].animator.SetBool("Pressed", true);
         cursor = GameObject.Find("Cursor").transform;
         rot = transform.rotation;
         scale = transform.localScale.x;
+        kingItem = transform.GetChild ( 0 ).GetChild ( 0 ).GetComponent<SpriteRenderer> ();
+        kingItem.sprite = allItems [ 0 ].kingsItem;
+        starY = GameObject.Find ( "Star1" ).transform.position.y;
         //mousepostext = GameObject.Find("mousepos").GetComponent<UnityEngine.UI.Text>();
 	}
 	
@@ -77,25 +84,26 @@ public class GameController : MonoBehaviour {
             if (xs.Count > 0)
             {
                 xs.RemoveAt(0);
-                Animator buttAnim = GameObject.Find("Item" + currentItem).GetComponent<Animator>();
-                if (!buttAnim.GetCurrentAnimatorStateInfo(0).IsName("Activated"))
+                if (!allItems[currentItem].animator.GetCurrentAnimatorStateInfo(0).IsName("Activated"))
                 {
                     audioSource.Play();
-                    GameObject newItem = (GameObject)Instantiate(Resources.Load("items/Item" + currentItem), transform.position, transform.rotation);
-                    newItem.GetComponent<ItemScript>().speed *= shootSpeed;
+                    ((GameObject)Instantiate( allItems [ currentItem ].dropItem, transform.position, transform.rotation)).GetComponent<ItemScript>().speed *=shootSpeed;
                     anim.SetFloat("Speed", shootSpeed);
                     anim.SetTrigger("Atk");
-                    buttAnim.SetTrigger("Activated");
-                    buttAnim.GetComponent<ButtonScript>().SetTimer();
+                    allItems [ currentItem ].animator.SetTrigger("Activated");
+                    allItems [ currentItem ].animator.GetComponent<ButtonScript>().SetTimer();
                     shootSpeed = .8f;
 
-                    int i = 0; while (++i != 5)
+                    byte i= 0; while (++i != 5)
                     {
-                        buttAnim = GameObject.Find("Item" + ((i + currentItem) % 5)).GetComponent<Animator>();
-                        if (!buttAnim.GetCurrentAnimatorStateInfo(0).IsName("Activated"))
+
+                        if ( !allItems [ (currentItem+ i)%5 ].animator.GetCurrentAnimatorStateInfo ( 0 ).IsName ( "Activated" ) ) {
+                            currentItem = ( byte )(( currentItem + i ) % 5);
+                            kingItem.sprite = allItems [ currentItem ].kingsItem;
                             break;
+                        }
                     }
-                    buttAnim.GetComponent<EventTrigger>().OnPointerClick(new PointerEventData(EventSystem.current));
+                    allItems [ currentItem ].animator.GetComponent<EventTrigger>().OnPointerClick(new PointerEventData(EventSystem.current));
                     if (i == 5)
                     {
                         anim.SetBool("Cooled", false);
@@ -114,7 +122,7 @@ public class GameController : MonoBehaviour {
             cursor.position -= new Vector3(.02f, 0);
         else if (cursorScreenPos.x < 10)
             cursor.position += new Vector3(.02f, 0);
-        if (stars == 3 && Camera.main.WorldToScreenPoint(transform.position).y < 675)
+        if (stars == 3 && Camera.main.WorldToScreenPoint(transform.position).y - starY < starDist)
                 SetStarAnimation();
             else if (stars == 2 && Camera.main.WorldToScreenPoint(transform.position).y < 500)
                 SetStarAnimation();
@@ -129,6 +137,11 @@ public class GameController : MonoBehaviour {
     {
         GameObject.Find("Star" + stars).GetComponent<Animator>().SetTrigger("die" + Random.Range(0, 3));
         --stars;
+        if ( stars == 0 ) {
+            Lose ();
+            return;
+        }
+        starY = GameObject.Find ( "Star" + stars ).transform.position.y;
     }
 
     public void SetDrag()
@@ -136,6 +149,10 @@ public class GameController : MonoBehaviour {
         drag = true;
         if(!cooling)
             anim.SetBool("Charge", true);
+    }
+
+    public void Lose () {
+
     }
 
     public void StopDrag()
