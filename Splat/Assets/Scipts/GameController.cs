@@ -8,11 +8,14 @@ public class GameController : MonoBehaviour {
         public Animator animator;
         public GameObject dropItem;
         public Sprite kingsItem;
+        public bool unlocked;
     }
-    Item[] allItems;
+    static Item[] allItems;
+    static public byte[] coolDowns = {5,5,5,5,5,5,5,5,5,5,5,5};
     //this will change when i actually have a spritesheet
     static public byte[] sprites = {114,7,113,115,116,112,126,199,247,245,206,105};
     static public byte[] indexes = {0,1,2,3,4};
+    static public byte level = 0;
 
     List<float> xs = new List<float>();
     float speed, scale, shootSpeed = .8f, dis, starY;
@@ -24,7 +27,7 @@ public class GameController : MonoBehaviour {
     public AudioClip error;
     public static byte currentItem;
     static bool drag, cooling;
-    SpriteRenderer kingItem;
+    static SpriteRenderer kingItem;
     const int starDist = 10;
 
 	// Use this for initialization
@@ -34,6 +37,8 @@ public class GameController : MonoBehaviour {
             allItems[i].animator = GameObject.Find ( "Item" + i ).GetComponent<Animator> ();
             allItems[i].dropItem = (GameObject)Resources.Load ( "items/Item" + indexes [ i] );
             allItems[i].kingsItem = GameObject.Find ( "Item" + i ).GetComponent<UnityEngine.UI.Image> ().sprite;
+            if ( i < level + 2 )
+                allItems [ i ].unlocked = true;
         }
         audioSource = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
@@ -95,20 +100,18 @@ public class GameController : MonoBehaviour {
                     shootSpeed = .8f;
 
                     byte i= 0; while (++i != 5)
-                    {
-
-                        if ( !allItems [ (currentItem+ i)%5 ].animator.GetCurrentAnimatorStateInfo ( 0 ).IsName ( "Activated" ) ) {
+                        if ( !allItems [ (currentItem+ i)%5 ].animator.GetCurrentAnimatorStateInfo ( 0 ).IsName ( "Activated" ) && allItems [ ( currentItem + i ) % 5 ] .unlocked) {
                             currentItem = ( byte )(( currentItem + i ) % 5);
                             kingItem.sprite = allItems [ currentItem ].kingsItem;
                             break;
                         }
-                    }
-                    allItems [ currentItem ].animator.GetComponent<EventTrigger>().OnPointerClick(new PointerEventData(EventSystem.current));
                     if (i == 5)
                     {
                         anim.SetBool("Cooled", false);
                         cooling = true;
                     }
+                    else
+                        allItems [ currentItem ].animator.GetComponent<EventTrigger>().OnPointerClick(new PointerEventData(EventSystem.current));
                 }
                 else
                     audioSource.PlayOneShot(error);
@@ -174,7 +177,8 @@ public class GameController : MonoBehaviour {
             cooling = false;
             anim.SetBool("Cooled", true);
             currentItem = _item;
-            GameObject.Find("Item"+currentItem).GetComponent<EventTrigger>().OnPointerClick(new PointerEventData(EventSystem.current));
+            allItems [ currentItem ].animator.SetBool ( "Pressed", true );
+            kingItem.sprite = allItems [ currentItem ].kingsItem;
         }
         
     }

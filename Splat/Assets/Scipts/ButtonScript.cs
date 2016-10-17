@@ -2,14 +2,25 @@
 
 public class ButtonScript : MonoBehaviour {
 
-    public float coolDown, timer;
-    public byte item;
+    float coolDown, timer;
+    byte item;
+    bool unlocked = true;
     UnityEngine.UI.Text text;
 	// Use this for initialization
 	void Awake () {
+        item = byte.Parse ( System.Text.RegularExpressions.Regex.Match ( gameObject.name, @"\d+" ).Value );
+        //this will change when i actually have the items sprtie sheet
+        GetComponent<UnityEngine.UI.Image> ().sprite = Resources.LoadAll<Sprite>("spriteSheet") [ GameController.sprites [ GameController.indexes [ item] ] ];
+        if(item > GameController.level + 1 ) {
+            unlocked = false;
+            Color color = GetComponent<UnityEngine.UI.Image> ().color;
+            color.a = 0f;
+            GetComponent<UnityEngine.UI.Image> ().color = color;
+            GetComponent<Animator> ().enabled = false;
+            GetComponent<UnityEngine.EventSystems.EventTrigger> ().enabled = false;
+        }
+        coolDown = GameController.coolDowns [ GameController.indexes [ item ] ];
         text = transform.GetChild(0).GetComponent<UnityEngine.UI.Text>();
-        //this will change when i actually have teh items sprtie sheet
-        GetComponent<UnityEngine.UI.Image> ().sprite = Resources.LoadAll<Sprite>("spriteSheet") [ GameController.sprites [ GameController.indexes [ int.Parse ( System.Text.RegularExpressions.Regex.Match ( gameObject.name, @"\d+" ).Value )] ] ];
 	}
 
     void FixedUpdate()
@@ -31,8 +42,8 @@ public class ButtonScript : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetButtonDown("Select" + item))
-            GetComponent<UnityEngine.EventSystems.EventTrigger>().OnPointerClick(new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current));
+        if ( Input.GetButtonDown ( "Select" + item ) && unlocked )
+            GetComponent<UnityEngine.EventSystems.EventTrigger> ().OnPointerClick ( new UnityEngine.EventSystems.PointerEventData ( UnityEngine.EventSystems.EventSystem.current ) );
     }
     public void SetTimer () {
         timer = coolDown;
