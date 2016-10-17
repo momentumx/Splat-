@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour {
     }
     Item[] allItems;
     //this will change when i actually have a spritesheet
-    static public byte[] sprites = {114,7,113,115,116,112,120,121,122,123,124,125};
+    static public byte[] sprites = {114,7,113,115,116,112,126,199,247,245,206,105};
     static public byte[] indexes = {0,1,2,3,4};
 
     List<float> xs = new List<float>();
@@ -31,9 +31,9 @@ public class GameController : MonoBehaviour {
 	void Start () {
         allItems = new Item [ 5 ];
         sbyte i = -1; while ( ++i!=5 ) {
-            allItems[i].animator = GameObject.Find ( "Item" + indexes[i] ).GetComponent<Animator> ();
+            allItems[i].animator = GameObject.Find ( "Item" + i ).GetComponent<Animator> ();
             allItems[i].dropItem = (GameObject)Resources.Load ( "items/Item" + indexes [ i] );
-            allItems[i].kingsItem = GameObject.Find ( "Item" + indexes [ i] ).GetComponent<UnityEngine.UI.Image> ().sprite;
+            allItems[i].kingsItem = GameObject.Find ( "Item" + i ).GetComponent<UnityEngine.UI.Image> ().sprite;
         }
         audioSource = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
