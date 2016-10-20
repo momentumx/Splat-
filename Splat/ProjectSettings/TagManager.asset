@@ -3,7 +3,20 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Box
+  - Nana
+  - Spear
+  - Fire
+  - Pogo
+  - Bomb
+  - Star
+  - Mine
+  - Ninja
+  - Magnet
+  - Trap
+  - Poison
+  - Kill
   layers:
   - Default
   - TransparentFX

@@ -12,10 +12,10 @@ GameObject:
   - 212: {fileID: 21234558}
   - 95: {fileID: 9512370}
   - 50: {fileID: 5065832}
-  - 61: {fileID: 61000013433176720}
+  - 61: {fileID: 61000011286272294}
   m_Layer: 8
   m_Name: Item0
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,7 +59,7 @@ Animator:
   m_GameObject: {fileID: 187980}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 451cb11f312cb0844b66c4396fbe7efc, type: 2}
+  m_Controller: {fileID: 9100000, guid: 26dcd98c70ece9046a00b4cd62037d2e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -79,8 +79,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -20
-  magnitude: 0
-  soundFX: {fileID: 0}
+  magnitude: 5
+  kills: 0
+  crashSFX: {fileID: 0}
+  collideSFX: {fileID: 0}
 --- !u!212 &21234558
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -110,7 +112,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1543136693
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300004, guid: bc7ba0da38f59f042a314002ce61fdff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 97388e7d2923d394cb7af609b5062176, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -125,7 +127,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 187980}
   m_IsPrefabParent: 1
---- !u!61 &61000013433176720
+--- !u!61 &61000011286272294
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -138,4 +140,4 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.32}
+  m_Size: {x: 0.68, y: 0.71}

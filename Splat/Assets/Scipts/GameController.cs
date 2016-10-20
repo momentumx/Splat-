@@ -12,10 +12,9 @@ public class GameController : MonoBehaviour {
     }
     static Item[] allItems;
     static public byte[] coolDowns = {5,5,5,5,5,5,5,5,5,5,5,5};
-    //this will change when i actually have a spritesheet
-    static public byte[] sprites = {114,7,113,115,116,112,126,199,247,245,206,105};
     static public byte[] indexes = {0,1,2,3,4};
     static public byte level = 0;
+    static public string[] kills = {"Single Kill", "Double Kill", "Triple Kill", "Quadra Kill", "Penta Kill", "Crazy Kill", "Insane Kill", "Murder" };
 
     List<float> xs = new List<float>();
     float speed, scale, shootSpeed = .8f, dis, starY;
@@ -23,12 +22,12 @@ public class GameController : MonoBehaviour {
     static Animator anim;
     static Transform cursor, camer;
     Quaternion rot;
-    AudioSource audioSource;
+    public AudioSource audioSource;
     public AudioClip error;
     public static byte currentItem;
     static bool drag, cooling;
     static SpriteRenderer kingItem;
-    const int starDist = 10;
+    const uint starDist = 10;
 
 	// Use this for initialization
 	void Start () {
@@ -177,7 +176,7 @@ public class GameController : MonoBehaviour {
             cooling = false;
             anim.SetBool("Cooled", true);
             currentItem = _item;
-            allItems [ currentItem ].animator.SetBool ( "Pressed", true );
+            allItems [ currentItem ].animator.GetComponent<EventTrigger> ().OnPointerClick ( new PointerEventData ( EventSystem.current ) );
             kingItem.sprite = allItems [ currentItem ].kingsItem;
         }
         

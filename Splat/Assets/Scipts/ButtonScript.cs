@@ -10,7 +10,7 @@ public class ButtonScript : MonoBehaviour {
 	void Awake () {
         item = byte.Parse ( System.Text.RegularExpressions.Regex.Match ( gameObject.name, @"\d+" ).Value );
         //this will change when i actually have the items sprtie sheet
-        GetComponent<UnityEngine.UI.Image> ().sprite = Resources.LoadAll<Sprite>("spriteSheet") [ GameController.sprites [ GameController.indexes [ item] ] ];
+        GetComponent<UnityEngine.UI.Image> ().sprite = Resources.LoadAll<Sprite>("Items") [ item ];
         if(item > GameController.level + 1 ) {
             unlocked = false;
             Color color = GetComponent<UnityEngine.UI.Image> ().color;

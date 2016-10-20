@@ -4,7 +4,8 @@
 public class ItemScript : MonoBehaviour {
 
     public float speed, magnitude;
-    public AudioClip soundFX;
+    public uint kills;
+    public AudioClip crashSFX, collideSFX;
 
     void Start()
     {
@@ -14,16 +15,25 @@ public class ItemScript : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D _other)
     {
         GetComponent<Animator>().SetTrigger("Crash");
-        GameObject balloon = GameObject.Find("Balloon");
-        balloon.GetComponent<AudioSource>().PlayOneShot(soundFX);
-        balloon.GetComponent<GameController>().ShakeCall(magnitude);
+        GameController balloon = GameObject.Find("Balloon").GetComponent<GameController>();
+        balloon.audioSource.PlayOneShot( crashSFX );
+        balloon.ShakeCall(magnitude);
         GetComponent<Rigidbody2D> ().gravityScale = 0;
-        //the box cllider gets taken away in the animator
+        GetComponent<BoxCollider2D> ().isTrigger = true;
+        //the box cllider gets taken away in the animator since not all lose there collider
         //die gets called in teh animator
     }
 
     public void Die()
     {
+        if ( kills > 0 ) {
+            GameObject text = Instantiate ( Resources.Load<GameObject> ( "KillText" ) );
+            text.GetComponent<UnityEngine.UI.Text> ().text = GameController.kills [ kills-1 ];
+            text.transform.position = Camera.main.WorldToScreenPoint ( transform.position );
+        }
         Destroy(gameObject);
+    }
+    public void ChangeTag(string _tag ) {
+        tag = _tag;
     }
 }
