@@ -8,11 +8,15 @@ public class MovingObjects : MonoBehaviour {
     }
     public Type whatHappensAtEdge;
     public Vector3 dir;
+    public float myWidth;
+    void Awake () {
+        myWidth = GetComponent<SpriteRenderer> ().bounds.extents.x * .5f;
+    }
     // Update is called once per frame
     protected virtual void FixedUpdate () {
         transform.position += dir;
         float width = Screen.width * .5f;
-        if ( Mathf.Abs ( Camera.main.WorldToScreenPoint ( transform.position ).x - width ) - width > 21 ) {
+        if ( Mathf.Abs ( Camera.main.WorldToScreenPoint ( transform.position ).x - width ) - width > 100 ) {
             switch ( whatHappensAtEdge ) {
                 case Type.wrapping:
                     transform.position = new Vector3 ( -transform.position.x, transform.position.y, transform.position.z );

@@ -145,10 +145,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 3534814}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.19765733, y: 0, z: 0, w: 0.9802712}
   m_LocalPosition: {x: 0, y: -464, z: 0}
   m_LocalScale: {x: 30, y: 18.13, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -22.8, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 439545267}
   m_RootOrder: 0
@@ -201,9 +201,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatHappensAtEdge: 2
   dir: {x: 0.2, y: 0, z: 0}
+  myWidth: 0
   sleepTime: 20
-  soundFX: {fileID: 0}
+  die: {fileID: 0}
   hurt: {fileID: 0}
+  king: {fileID: 0}
 --- !u!212 &132889648
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -665,10 +667,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 276994453}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.19765733, y: 0, z: 0, w: 0.9802712}
   m_LocalPosition: {x: 22.2, y: -375.9, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -22.8, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 439545267}
   m_RootOrder: 7
@@ -685,6 +687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatHappensAtEdge: 1
   dir: {x: 0, y: 0, z: 0}
+  myWidth: 0
   soundFX: {fileID: 0}
 --- !u!1 &303367254
 GameObject:
@@ -962,10 +965,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 323355282}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.19765733, y: 0, z: 0, w: 0.9802712}
   m_LocalPosition: {x: 10.5, y: -458.6, z: 0}
   m_LocalScale: {x: 30, y: 20, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -22.8, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 439545267}
   m_RootOrder: 16
@@ -981,7 +984,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whatHappensAtEdge: 0
-  dir: {x: -0.02, y: 0, z: 0}
+  dir: {x: -0.03, y: 0, z: 0}
+  myWidth: 0
 --- !u!1 &380412659
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,10 +1042,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 380412659}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.19765733, y: 0, z: 0, w: 0.9802712}
   m_LocalPosition: {x: 35.4, y: -385, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -22.8, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 439545267}
   m_RootOrder: 8
@@ -1058,6 +1062,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatHappensAtEdge: 1
   dir: {x: 0, y: 0, z: 0}
+  myWidth: 0
   soundFX: {fileID: 0}
 --- !u!1 &418533394
 GameObject:
@@ -1177,10 +1182,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 422009552}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.19765733, y: 0, z: 0, w: 0.9802712}
   m_LocalPosition: {x: 18.8, y: -458.8, z: 0}
   m_LocalScale: {x: 30, y: 40, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -22.8, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 439545267}
   m_RootOrder: 15
@@ -1197,6 +1202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatHappensAtEdge: 0
   dir: {x: -0.01, y: 0, z: 0}
+  myWidth: 0
 --- !u!1 &439545266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1301,10 +1307,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 448726833}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.19765733, y: 0, z: 0, w: 0.9802712}
   m_LocalPosition: {x: -34.4, y: -458.8, z: 0}
   m_LocalScale: {x: 40, y: 60, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -22.8, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 439545267}
   m_RootOrder: 17
@@ -1321,6 +1327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatHappensAtEdge: 0
   dir: {x: 0.01, y: 0, z: 0}
+  myWidth: 0
 --- !u!1 &480306842
 GameObject:
   m_ObjectHideFlags: 0
@@ -1451,10 +1458,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 495716590}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.19765733, y: 0, z: 0, w: 0.9802712}
   m_LocalPosition: {x: -60.8, y: -357.6, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -22.8, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 439545267}
   m_RootOrder: 1
@@ -1471,6 +1478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatHappensAtEdge: 1
   dir: {x: 0, y: 0, z: 0}
+  myWidth: 0
   soundFX: {fileID: 0}
 --- !u!1 &558073074
 GameObject:
@@ -1673,10 +1681,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 591136403}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.19765733, y: 0, z: 0, w: 0.9802712}
   m_LocalPosition: {x: -19.400002, y: -412.5, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -22.8, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 439545267}
   m_RootOrder: 9
@@ -1693,6 +1701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatHappensAtEdge: 1
   dir: {x: 0, y: 0, z: 0}
+  myWidth: 0
   soundFX: {fileID: 0}
 --- !u!1 &597120865
 GameObject:
@@ -2273,10 +2282,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1000244076}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.19765733, y: 0, z: 0, w: 0.9802712}
   m_LocalPosition: {x: -2.8, y: -458.6, z: 0}
   m_LocalScale: {x: 20, y: 20, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -22.8, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 439545267}
   m_RootOrder: 18
@@ -2292,7 +2301,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whatHappensAtEdge: 0
-  dir: {x: 0.02, y: 0, z: 0}
+  dir: {x: 0.03, y: 0, z: 0}
+  myWidth: 0
 --- !u!1 &1025321654
 GameObject:
   m_ObjectHideFlags: 0
@@ -2575,10 +2585,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1061077131}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.19765733, y: 0, z: 0, w: 0.9802712}
   m_LocalPosition: {x: -14.400001, y: -451.31, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -22.8, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 439545267}
   m_RootOrder: 14
@@ -2810,10 +2820,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1122772876}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.19765733, y: 0, z: 0, w: 0.9802712}
   m_LocalPosition: {x: -39.8, y: -372.8, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -22.8, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 439545267}
   m_RootOrder: 6
@@ -2830,6 +2840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatHappensAtEdge: 1
   dir: {x: 0, y: 0, z: 0}
+  myWidth: 0
   soundFX: {fileID: 0}
 --- !u!1 &1123851973
 GameObject:
@@ -2950,10 +2961,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1128194596}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.19765733, y: 0, z: 0, w: 0.9802712}
   m_LocalPosition: {x: -30.5, y: -344.1, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -22.8, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 439545267}
   m_RootOrder: 2
@@ -2970,6 +2981,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatHappensAtEdge: 1
   dir: {x: 0, y: 0, z: 0}
+  myWidth: 0
   soundFX: {fileID: 0}
 --- !u!1 &1129106037
 GameObject:
@@ -3200,7 +3212,7 @@ Transform:
   m_GameObject: {fileID: 1217128544}
   m_LocalRotation: {x: 0.19765694, y: 0, z: 0, w: -0.9802713}
   m_LocalPosition: {x: -5.6614304, y: -294.8, z: 19.4}
-  m_LocalScale: {x: 15, y: 15, z: 15}
+  m_LocalScale: {x: 18, y: 18, z: 1}
   m_LocalEulerAnglesHint: {x: -22.7999, y: 0, z: 0}
   m_Children:
   - {fileID: 1123851974}
@@ -3441,10 +3453,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1297753002}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.19765733, y: 0, z: 0, w: 0.9802712}
   m_LocalPosition: {x: 22, y: -363.9, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -22.8, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 439545267}
   m_RootOrder: 5
@@ -3461,6 +3473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatHappensAtEdge: 1
   dir: {x: 0, y: 0, z: 0}
+  myWidth: 0
   soundFX: {fileID: 0}
 --- !u!1 &1394174886
 GameObject:
@@ -3485,10 +3498,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1394174886}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.19765733, y: 0, z: 0, w: 0.9802712}
   m_LocalPosition: {x: 0, y: -464.4, z: 0}
   m_LocalScale: {x: 20, y: 7, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -22.8, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 439545267}
   m_RootOrder: 19
@@ -3814,10 +3827,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1530290168}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.19765733, y: 0, z: 0, w: 0.9802712}
   m_LocalPosition: {x: 39.2, y: -450.5, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -22.8, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 439545267}
   m_RootOrder: 12
@@ -3876,10 +3889,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1603446335}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.19765733, y: 0, z: 0, w: 0.9802712}
   m_LocalPosition: {x: -47.900005, y: -450.5, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -22.8, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 439545267}
   m_RootOrder: 13
@@ -4001,10 +4014,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1615686118}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.19765733, y: 0, z: 0, w: 0.9802712}
   m_LocalPosition: {x: 31.5, y: -335.7, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -22.8, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 439545267}
   m_RootOrder: 3
@@ -4021,6 +4034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatHappensAtEdge: 1
   dir: {x: 0, y: 0, z: 0}
+  myWidth: 0
   soundFX: {fileID: 0}
 --- !u!1 &1625285854
 GameObject:
@@ -4165,10 +4179,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1686575826}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.19765733, y: 0, z: 0, w: 0.9802712}
   m_LocalPosition: {x: -21.6, y: -365.5, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -22.8, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 439545267}
   m_RootOrder: 4
@@ -4185,6 +4199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatHappensAtEdge: 1
   dir: {x: 0, y: 0, z: 0}
+  myWidth: 0
   soundFX: {fileID: 0}
 --- !u!1 &1786372106
 GameObject:
@@ -4484,6 +4499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatHappensAtEdge: 0
   dir: {x: 0, y: 0, z: 0}
+  myWidth: 0
   soundFX: {fileID: 0}
 --- !u!95 &1815437581
 Animator:
@@ -4648,6 +4664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatHappensAtEdge: 0
   dir: {x: 0, y: 0, z: 0}
+  myWidth: 0
   soundFX: {fileID: 0}
 --- !u!212 &1926329567
 SpriteRenderer:

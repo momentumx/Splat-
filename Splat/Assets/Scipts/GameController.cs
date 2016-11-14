@@ -10,27 +10,29 @@ public class GameController : MonoBehaviour {
         public Sprite kingsItem;
         public bool unlocked;
     }
-    static Item[] allItems;
     static public byte[] coolDowns = {5,5,5,5,5,5,5,5,5,5,5,5};
     static public byte[] indexes = {0,1,2,3,4};
-    static public byte level = 0;
-    static public string[] kills = {"Single Kill", "Double Kill", "Triple Kill", "Quadra Kill", "Penta Kill", "Crazy Kill", "Insane Kill", "Murder" };
+    static public byte level = 0, minions = 0, currentItem;
 
-    List<float> xs = new List<float>();
+    static bool drag, cooling, playing = true;
     float speed, scale, shootSpeed = .8f, dis, starY;
-    int stars = 3;
+    const uint starDist = 10;
+    byte stars = 3;
+    static public string[] kills = {"Single Kill", "Double Kill", "Triple Kill", "Quadra Kill", "Penta Kill", "Crazy Kill", "Insane Kill", "Murder" };
+    static Item[] allItems;
+    List<float> xs = new List<float>();
     static Animator anim;
     static Transform cursor, camer;
     Quaternion rot;
     public AudioSource audioSource;
     public AudioClip error;
-    public static byte currentItem;
-    static bool drag, cooling;
     static SpriteRenderer kingItem;
-    const uint starDist = 10;
+    Vector3 cameraSpeed;
 
 	// Use this for initialization
 	void Start () {
+        cameraSpeed = new Vector3 ( 0f, 0f, .02f );
+        currentItem = 0;
         allItems = new Item [ 5 ];
         sbyte i = -1; while ( ++i!=5 ) {
             allItems[i].animator = GameObject.Find ( "Item" + i ).GetComponent<Animator> ();
@@ -117,7 +119,7 @@ public class GameController : MonoBehaviour {
             }
         }
         transform.position += new Vector3(speed,- .05f);
-        camer.position += new Vector3(0,0,.02f);
+        camer.position += cameraSpeed;
 
         Vector3 cursorScreenPos = Camera.main.WorldToScreenPoint(cursor.position);
         if (cursorScreenPos.x > Screen.width-10)
@@ -184,25 +186,56 @@ public class GameController : MonoBehaviour {
 
     public void ShakeCall(float magnitude)
     {
+        if(playing)
         StartCoroutine(Shake(magnitude));
+    }
 
+    public void CheckWin (Vector3 _pos) {
+        --minions;
+        if ( minions <= 0 ) {
+            ++level;
+            //set Camera win couroutine
+            //camer.forward = (_pos - camer.position).normalized;
+            //camer.Rotate ( transform.right, -22.8f );
+            playing = false;
+            StartCoroutine ( ZoomIn ( _pos ) );
+        }
     }
 
     IEnumerator Shake(float magnitude)
     {
         float camY = camer.position.y;
-
+        Vector3 shakePos;
+        shakePos.z = 0;
         // map value to [-1, 1]
         while (magnitude > 0)
         {
-            float x = Random.Range(-magnitude*1.6f, magnitude*1.6f);
-            float y = Random.Range(0, magnitude);
+            shakePos.x = Random.Range(-magnitude*1.6f, magnitude*1.6f);
+            shakePos.y = Random.Range(0, magnitude);
 
-            camer.position += new Vector3(x, y);
+            camer.position += shakePos;
 
             yield return new WaitForSeconds(.04f);
             camer.position = new Vector3(0, camY, camer.position.z);
             magnitude -= .3f;
         }
+    }
+
+    IEnumerator ZoomIn ( Vector3 _pos ) {
+        float xDistance = (_pos.x - camer.position.x);
+        float zDistance = (_pos.z - camer.position.z);
+        camer.position = new Vector3 ( _pos.x, camer.position.y, camer.position.z );
+        // map value to [-1, 1]
+        while ( zDistance > 30 ) {
+            if( Time.timeScale >.3f)
+                Time.timeScale -= .05f;
+            cameraSpeed.x = xDistance / 10f;
+            cameraSpeed.z = Mathf.Pow(zDistance,2) / 4000f;
+            yield return new WaitForSeconds ( .1f );
+            xDistance = ( _pos.x - camer.position.x );
+            zDistance = (_pos.z - camer.position.z);
+        }
+        UnityEngine.SceneManagement.SceneManager.LoadScene ( 0 );
+        Time.timeScale = 1;
     }
 }
