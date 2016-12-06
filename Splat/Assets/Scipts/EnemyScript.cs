@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 public class EnemyScript : MovingObjects {
+    bool available = true;
     float timer, maxSpeed;
     public float sleepTime;
     public AudioClip die, hurt;
@@ -19,6 +20,7 @@ public class EnemyScript : MovingObjects {
 
     protected override void FixedUpdate () {
         base.FixedUpdate ();
+        //transform.LookAt ( GameController.camer );
         if ( timer != 0 ) {
             timer -= Time.fixedDeltaTime;
             if ( timer <= 0 ) {
@@ -29,7 +31,12 @@ public class EnemyScript : MovingObjects {
         }
     }
 
+    public void MakeAvailable() {
+        available = true;
+    }
+
     void Collide (ItemScript item, bool itemAct = false) {
+        available = false;
         GetComponent<Collider2D> ().enabled = false;
         GetComponent<Animator> ().SetTrigger ( "Collided" );
         king.PlayOneShot ( die );
@@ -44,6 +51,7 @@ public class EnemyScript : MovingObjects {
     }
 
     void CollideInjur ( ItemScript item, bool itemAct = false ) {
+        available = false;
         GetComponent<Animator> ().SetTrigger ( "Hurt" );
         king.PlayOneShot ( hurt );
         maxSpeed = dir.x;
@@ -56,6 +64,7 @@ public class EnemyScript : MovingObjects {
     }
 
     protected virtual void Nana ( Collider2D _other ) {
+
         CollideInjur ( _other.GetComponent<ItemScript> (), true );
         _other.tag = "Untagged";
     }
@@ -112,10 +121,10 @@ public class EnemyScript : MovingObjects {
     }
 
     protected virtual void Spear ( Collider2D _other ) {
-        if ( timer == 0 && Mathf.Abs ( transform.position.x - _other.transform.position.x ) > myWidth + 2 ) {
-            CollideInjur ( _other.GetComponent<ItemScript> () );
-        } else {
+        if ( timer != 0 || Mathf.Abs ( transform.position.x - _other.transform.position.x ) < myWidth + 2 ) {
             Collide ( _other.GetComponent<ItemScript> () );
+        } else {
+            CollideInjur ( _other.GetComponent<ItemScript> () );
         }
     }
 
@@ -128,44 +137,47 @@ public class EnemyScript : MovingObjects {
     }
 
     void OnTriggerStay2D ( Collider2D _other ) {
-        
-        switch ( _other.tag ) {
-            case "Box":
-                Box ( _other );
-                break;
-            case "Nana":
-                Nana ( _other );
-                break;
-            case "Spear":
-                Spear ( _other );
-                break;
-            case "Ninja":
-                Ninja ( _other);
-                break;
-            case "Trap":
-                if ( Mathf.Abs ( transform.position.x - _other.transform.position.x ) <.2f )
-                    Trap ( _other );
-                break;
-            case "Pogo":
-                Pogo ( _other );
-                break;
-            case "Fire":
-                Fire ( _other );
-                break;
-            case "Star":
-                Star ( _other );
-                break;
-            case "Bomb":
-                Bomb ( _other );
-                break;
-            case "Gas":
-                Gas ( _other );
-                break;
-            case "Mine":
-                Mine ( _other );
-                break;
-            default:
-                break;
+
+        if ( available ) {
+            switch ( _other.tag ) {
+                case "Box":
+                    Box ( _other );
+                    break;
+                case "Nana":
+                    if(timer==0)
+                        Nana ( _other );
+                    break;
+                case "Spear":
+                    Spear ( _other );
+                    break;
+                case "Ninja":
+                    Ninja ( _other );
+                    break;
+                case "Trap":
+                    if (timer == 0 && Mathf.Abs ( transform.position.x - _other.transform.position.x ) < .2f )
+                        Trap ( _other );
+                    break;
+                case "Pogo":
+                    Pogo ( _other );
+                    break;
+                case "Fire":
+                    Fire ( _other );
+                    break;
+                case "Star":
+                    Star ( _other );
+                    break;
+                case "Bomb":
+                    Bomb ( _other );
+                    break;
+                case "Gas":
+                    Gas ( _other );
+                    break;
+                case "Mine":
+                    Mine ( _other );
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

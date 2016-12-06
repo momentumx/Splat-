@@ -7,7 +7,7 @@ public class ItemScript : MonoBehaviour {
     public float speed, magnitude;
     public AudioClip crashSFX, collideSFX;
 
-    void Start()
+    public virtual void Start()
     {
         GetComponent<Rigidbody2D>().velocity += new Vector2(0, speed);
     }
@@ -18,8 +18,7 @@ public class ItemScript : MonoBehaviour {
         GameController balloon = GameObject.Find("Balloon").GetComponent<GameController>();
         balloon.audioSource.PlayOneShot( crashSFX );
         balloon.ShakeCall(magnitude);
-        //the box cllider gets taken away in the animator since not all lose there collider
-        //die gets called in teh animator
+        //die gets called in the animator
     }
 
     public void Die()

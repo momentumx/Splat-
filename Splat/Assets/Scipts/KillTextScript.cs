@@ -10,6 +10,6 @@ public class KillTextScript : MonoBehaviour {
 	}
 
     void FixedUpdate () {
-        transform.position += new Vector3 ( 0, .7f );
+        transform.position += new Vector3 ( 0, .9f );
     }
 }

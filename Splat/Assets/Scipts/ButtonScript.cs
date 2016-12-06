@@ -11,7 +11,7 @@ public class ButtonScript : MonoBehaviour {
         item = GameController.indexes [ byte.Parse ( System.Text.RegularExpressions.Regex.Match ( gameObject.name, @"\d+" ).Value ) ];
         //this will change when i actually have the items sprtie sheet
         GetComponent<UnityEngine.UI.Image> ().sprite = Resources.LoadAll<Sprite>("Items") [ item ];
-        if(item > GameController.level + 1 ) {
+        if(item > GameController.stars/6 + 1 ) {
             unlocked = false;
             Color color = GetComponent<UnityEngine.UI.Image> ().color;
             color.a = 0f;

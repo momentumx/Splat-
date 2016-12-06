@@ -12,10 +12,10 @@ GameObject:
   - 212: {fileID: 21234558}
   - 95: {fileID: 9512370}
   - 50: {fileID: 5065832}
-  - 61: {fileID: 61000010268371610}
+  - 61: {fileID: 61000010114916422}
   m_Layer: 8
   m_Name: Item3
-  m_TagString: Untagged
+  m_TagString: Fire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.4487095, y: -469.4324, z: 0}
+  m_LocalPosition: {x: 25.24442, y: -455.2, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -78,9 +78,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8eef89116ec7494cb70af935f4f4744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kills: 0
   speed: -20
   magnitude: 0
-  kills: 0
   crashSFX: {fileID: 0}
   collideSFX: {fileID: 0}
 --- !u!212 &21234558
@@ -127,7 +127,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 187980}
   m_IsPrefabParent: 1
---- !u!61 &61000010268371610
+--- !u!61 &61000010114916422
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -138,6 +138,6 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.345}
   serializedVersion: 2
-  m_Size: {x: 0.36, y: 0.53}
+  m_Size: {x: 0.67, y: 0.69}

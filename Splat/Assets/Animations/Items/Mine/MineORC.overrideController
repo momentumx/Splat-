@@ -5,10 +5,12 @@ AnimatorOverrideController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: BomcORC
+  m_Name: MineORC
   m_Controller: {fileID: 9100000, guid: 1bb1cdeae27d37c46ae6a249638d9819, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: 9e2327181a47ddd49b146bbf4767e740, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 9e2327181a47ddd49b146bbf4767e740, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 76b61be1fb311b944b7ac8ac6a33ae97, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: cf2ad360a40f5cd4794d271f56417bbe, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1d7e3fe3fe520884fb78315cc0ba433a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: afdf9af02399c4e4bb182af7a84696a2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4ee0c7d1518b3c64c8aa7b865bacc530, type: 2}
