@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kills: 0
-  speed: -200
+  speed: -300
   magnitude: 0
   crashSFX: {fileID: 0}
   collideSFX: {fileID: 0}

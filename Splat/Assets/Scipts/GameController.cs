@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour {
     static public byte[] indexes = {0,1,2,3,4};
     static public byte level = 0, minions = 0, currentItem, stars = 255, starStep;
 
-    public static bool drag, cooling, playing, intro;
+    public static bool drag, cooling, playing;
     float scale, shootSpeed = .8f, dis, starY;
     const uint starDist = 450U;
     static public string[] kills = {"Single Kill", "Double Kill", "Triple Kill", "Quadra Kill", "Penta Kill", "Crazy Kill!", "Insane Kill!!", "MURDER!!!" };
@@ -31,8 +31,7 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         starStep = 3;
-        intro = true;
-        playing = true;
+        playing = false;
         cameraSpeed.z = .1f;
         kingSpeed.y = -.18f;
         currentItem = 0;
@@ -59,19 +58,19 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate() {
-        if ( intro ) {
-        } else {
+        if ( playing ) {
             if ( drag ) {
-                cursor.position = new Vector2 ( Camera.main.ScreenToWorldPoint ( new Vector3 ( Input.mousePosition.x, 0, -camer.position.z ) ).x, cursor.position.y );
+                cursor.position = new Vector3 ( Camera.main.ScreenToWorldPoint ( new Vector3 ( Input.mousePosition.x, 0, -camer.position.z ) ).x, cursor.position.y,cursor.position.z );
                 shootSpeed += .01f;
                 if ( shootSpeed > 5 )
                     shootSpeed = 5;
             }
 
             //mousepostext.text = Input.mousePosition.x.ToString("F1") +", " + Input.mousePosition.y;
-            if ( xs.Count == 0 )
-                dis = ( cursor.position.x - transform.position.x );
-            else
+            if ( xs.Count == 0 ) {
+                if ( indexes [ currentItem ] != 4 )
+                    dis = ( cursor.position.x - transform.position.x );
+            } else
                 dis = ( xs [ 0 ] - transform.position.x );
             float disMag = Mathf.Abs(dis);
             if ( disMag > .4f ) {
@@ -90,32 +89,10 @@ public class GameController : MonoBehaviour {
                 transform.rotation = rot;
                 if ( xs.Count > 0 ) {
                     xs.RemoveAt ( 0 );
-                    if ( !allItems [ currentItem ].animator.GetCurrentAnimatorStateInfo ( 0 ).IsName ( "Activated" ) ) {
-                        audioSource.Play ();
-                        ( ( GameObject )Instantiate ( allItems [ currentItem ].dropItem, transform.position, transform.rotation ) ).GetComponent<ItemScript> ().speed *= shootSpeed;
-                        anim.SetFloat ( "Speed", shootSpeed );
-                        anim.SetTrigger ( "Atk" );
-                        allItems [ currentItem ].animator.SetTrigger ( "Activated" );
-                        allItems [ currentItem ].animator.GetComponent<ButtonScript> ().SetTimer ();
-                        shootSpeed = .8f;
-
-                        byte i= 0; while ( ++i != 5 )
-                            if ( !allItems [ ( currentItem + i ) % 5 ].animator.GetCurrentAnimatorStateInfo ( 0 ).IsName ( "Activated" ) && allItems [ ( currentItem + i ) % 5 ].unlocked ) {
-                                currentItem = ( byte )( ( currentItem + i ) % 5 );
-                                kingItem.sprite = allItems [ currentItem ].kingsItem;
-                                break;
-                            }
-                        if ( i == 5 ) {
-                            anim.SetBool ( "Cooled", false );
-                            cooling = true;
-                        } else
-                            allItems [ currentItem ].animator.GetComponent<EventTrigger> ().OnPointerClick ( new PointerEventData ( EventSystem.current ) );
-                    } else
-                        audioSource.PlayOneShot ( error );
+                    Fire ();
                 }
             }
-            transform.position += kingSpeed;
-            camer.position += cameraSpeed;
+            
 
             Vector3 cursorScreenPos = Camera.main.WorldToScreenPoint(cursor.position);
             if ( cursorScreenPos.x > Screen.width - 10 )
@@ -133,17 +110,47 @@ public class GameController : MonoBehaviour {
             rot.z = kingSpeed.x * .25f;
             transform.rotation = rot;
         }
+        transform.position += kingSpeed;
+        camer.position += cameraSpeed;
+    }
+
+    void Fire () {
+        if ( !allItems [ currentItem ].animator.GetCurrentAnimatorStateInfo ( 0 ).IsName ( "Activated" ) ) {
+
+            audioSource.Play ();
+            ( ( GameObject )Instantiate ( allItems [ currentItem ].dropItem, transform.position, transform.rotation ) ).GetComponent<ItemScript> ().speed *= shootSpeed;
+            anim.SetFloat ( "Speed", shootSpeed );
+            anim.SetTrigger ( "Atk" );
+            allItems [ currentItem ].animator.SetTrigger ( "Activated" );
+            allItems [ currentItem ].animator.GetComponent<ButtonScript> ().SetTimer ();
+            shootSpeed = .8f;
+
+            byte i= 0; while ( ++i != 5 )
+                if ( !allItems [ ( currentItem + i ) % 5 ].animator.GetCurrentAnimatorStateInfo ( 0 ).IsName ( "Activated" ) && allItems [ ( currentItem + i ) % 5 ].unlocked ) {
+                    currentItem = ( byte )( ( currentItem + i ) % 5 );
+                    kingItem.sprite = allItems [ currentItem ].kingsItem;
+                    break;
+                }
+            if ( i == 5 ) {
+                anim.SetBool ( "Cooled", false );
+                cooling = true;
+            } else
+                allItems [ currentItem ].animator.GetComponent<EventTrigger> ().OnPointerClick ( new PointerEventData ( EventSystem.current ) );
+        } else
+            audioSource.PlayOneShot ( error );
     }
 
     void SetStarAnimation()
     {
-        GameObject.Find("Star" + starStep).GetComponent<Animator>().SetTrigger("die" + Random.Range(0, 3));
-        --starStep;
-        if ( starStep == 0 ) {
-            Lose ();
-            return;
+        if ( playing ) {
+            GameObject.Find ( "Star" + starStep ).GetComponent<Animator> ().SetTrigger ( "die" + Random.Range ( 0, 3 ) );
+            --starStep;
+            if ( starStep == 0 ) {
+                Lose ();
+                return;
+            }
+            starY = GameObject.Find ( "Star" + starStep ).transform.position.y;
         }
-        starY = GameObject.Find ( "Star" + starStep ).transform.position.y;
     }
 
     public void SetDrag()
@@ -160,7 +167,9 @@ public class GameController : MonoBehaviour {
     public void StopDrag()
     {
         drag = false;
-        if(!cooling)
+        if ( indexes [ currentItem ] == 4 )
+            Fire ();
+        else if(!cooling )
             xs.Add(new Vector2(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, 0, -camer.position.z)).x, cursor.position.y).x);
     }
 
@@ -185,7 +194,7 @@ public class GameController : MonoBehaviour {
     public void ShakeCall(float magnitude)
     {
         if(playing)
-        StartCoroutine(Shake(magnitude));
+            StartCoroutine(Shake(magnitude));
     }
 
     public void CheckWin (Vector3 _pos) {
@@ -208,6 +217,8 @@ public class GameController : MonoBehaviour {
         // map value to [-1, 1]
         while (magnitude > 0)
         {
+            if ( !playing )
+               yield break;
             shakePos.x = Random.Range(-magnitude*1.6f, magnitude*1.6f);
             shakePos.y = Random.Range(0, magnitude);
 
@@ -225,9 +236,9 @@ public class GameController : MonoBehaviour {
         // map value to [-1, 1]
         while ( zDistance > 22 ) {
             if( Time.timeScale >.3f)
-                Time.timeScale -= .008f;
+                Time.timeScale -= .007f;
             cameraSpeed.x = xDistance / 30f;
-            cameraSpeed.z = Mathf.Pow(zDistance,2.3f) / 16000f;
+            cameraSpeed.z = Mathf.Pow(zDistance,2.2f) / 16000f;
             yield return new WaitForSeconds ( .1f );
             xDistance = ( _pos.x - camer.position.x );
             zDistance = (_pos.z - camer.position.z);

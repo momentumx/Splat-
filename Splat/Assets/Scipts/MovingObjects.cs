@@ -14,7 +14,7 @@ public class MovingObjects : MonoBehaviour {
     }
     // Update is called once per frame
     protected virtual void FixedUpdate () {
-        if ( !GameController.intro ) {
+        if (GameController.playing) {
             transform.position += dir;
             float width = Screen.width * .5f;
             switch ( whatHappensAtEdge ) {

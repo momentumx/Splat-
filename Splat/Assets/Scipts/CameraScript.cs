@@ -13,6 +13,6 @@ public class CameraScript : MonoBehaviour {
 	}
 
     public void SetIntro () {
-        GameController.intro = false;
+        GameController.playing = true;
     }
 }
