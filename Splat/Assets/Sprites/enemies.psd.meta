@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: cc7c31a752f733144be35cf7c42a0a1a
-timeCreated: 1466868699
+timeCreated: 1481761713
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -55,11 +55,14 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: enemies_0
+    - serializedVersion: 2
+      name: enemies_0
       rect:
         serializedVersion: 2
         x: 0
@@ -69,15 +72,10 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -43.5, y: 65}
-        - {x: -43.5, y: 7}
-        - {x: -41.5, y: 0}
-        - {x: 34.5, y: 0}
-        - {x: 43.5, y: 2}
-        - {x: 43.5, y: 61}
-        - {x: 39.5, y: 65}
-    - name: enemies_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: enemies_1
       rect:
         serializedVersion: 2
         x: 99
@@ -87,14 +85,10 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -26, y: 74}
-        - {x: -37, y: 64}
-        - {x: -37, y: 0}
-        - {x: 37, y: 0}
-        - {x: 37, y: 65}
-        - {x: 35, y: 74}
-    - name: enemies_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: enemies_2
       rect:
         serializedVersion: 2
         x: 188
@@ -104,16 +98,10 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -19.5, y: 41}
-        - {x: -33.5, y: 36}
-        - {x: -33.5, y: 9}
-        - {x: -21.5, y: 0}
-        - {x: 32.5, y: 0}
-        - {x: 33.5, y: 1}
-        - {x: 33.5, y: 31}
-        - {x: 30.5, y: 41}
-    - name: enemies_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: enemies_3
       rect:
         serializedVersion: 2
         x: 280
@@ -123,18 +111,10 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -27, y: 73}
-        - {x: -32, y: 41}
-        - {x: -32, y: 10}
-        - {x: -30, y: 7}
-        - {x: -25, y: 2}
-        - {x: -22, y: 0}
-        - {x: 22, y: 0}
-        - {x: 32, y: 6}
-        - {x: 32, y: 31}
-        - {x: 26, y: 73}
-    - name: enemies_4
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: enemies_4
       rect:
         serializedVersion: 2
         x: 364
@@ -144,14 +124,10 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -28, y: 74}
-        - {x: -36, y: 47}
-        - {x: -36, y: 0}
-        - {x: 36, y: 0}
-        - {x: 36, y: 65}
-        - {x: 18, y: 74}
-    - name: enemies_5
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: enemies_5
       rect:
         serializedVersion: 2
         x: 457
@@ -161,16 +137,10 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -32.5, y: 108}
-        - {x: -67.5, y: 74}
-        - {x: -67.5, y: 46}
-        - {x: -48.5, y: 0}
-        - {x: 45.5, y: 0}
-        - {x: 67.5, y: 6}
-        - {x: 67.5, y: 84}
-        - {x: 42.5, y: 108}
-    - name: enemies_6
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: enemies_6
       rect:
         serializedVersion: 2
         x: 610
@@ -180,16 +150,10 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 26, y: 66}
-        - {x: -29, y: 66}
-        - {x: -38, y: 64}
-        - {x: -38, y: 12}
-        - {x: -33, y: 0}
-        - {x: 21, y: 0}
-        - {x: 38, y: 9}
-        - {x: 38, y: 51}
-    - name: enemies_7
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: enemies_7
       rect:
         serializedVersion: 2
         x: 718
@@ -199,13 +163,10 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -25.5, y: 71}
-        - {x: -25.5, y: 0}
-        - {x: 25.5, y: 0}
-        - {x: 25.5, y: 48}
-        - {x: 22.5, y: 71}
-    - name: enemies_8
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: enemies_8
       rect:
         serializedVersion: 2
         x: 809
@@ -215,14 +176,8 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -30, y: 102}
-        - {x: -56, y: 60}
-        - {x: -56, y: 3}
-        - {x: -41, y: 0}
-        - {x: 56, y: 0}
-        - {x: 56, y: 88}
-        - {x: 52, y: 102}
+      outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 

@@ -6,13 +6,20 @@ public class MovingObjects : MonoBehaviour {
         wrapping,
         turning
     }
-    public Type whatHappensAtEdge;
+	[SerializeField]
+	Type whatHappensAtEdge;
     public Vector3 dir;
+    [HideInInspector]
     public float myWidth;
     void Awake () {
         myWidth = GetComponentInChildren<SpriteRenderer> ().bounds.extents.x;
     }
-    // Update is called once per frame
+
+    public void SwitchDirections () {
+        dir.x *= -1;
+        transform.localScale = new Vector3 ( transform.localScale.x * -1, transform.localScale.y, transform.localScale.z );
+    }
+
     protected virtual void FixedUpdate () {
         if (GameController.playing) {
             transform.position += dir;
@@ -26,9 +33,8 @@ public class MovingObjects : MonoBehaviour {
                     break;
                 case Type.turning:
                     if ( Mathf.Abs ( Camera.main.WorldToScreenPoint ( transform.position ).x - width ) - width > -myWidth ) {
-                        dir *= -1;
+                        SwitchDirections ();
                         transform.position += dir;
-                        transform.localScale = new Vector3 ( transform.localScale.x * -1, transform.localScale.y, transform.localScale.z );
                     }
                     break;
                 case Type.delete:
@@ -42,5 +48,12 @@ public class MovingObjects : MonoBehaviour {
 
     public virtual void Die () {
         Destroy ( gameObject );
+    }
+
+    protected void RandomizePosition (float _yDis) {
+        Vector3 randScreenPos = Camera.main.WorldToScreenPoint( transform.position);
+        randScreenPos.x = Random.Range ( myWidth, Screen.width - myWidth );
+        randScreenPos.y -= _yDis + Random.Range ( 0f, 2f * _yDis );
+		transform.position = Camera.main.ScreenToWorldPoint ( randScreenPos );
     }
 }

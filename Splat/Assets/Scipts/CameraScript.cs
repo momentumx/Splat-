@@ -12,7 +12,8 @@ public class CameraScript : MonoBehaviour {
 	
 	}
 
-    public void SetIntro () {
+    public void SetIntro  () {
         GameController.playing = true;
+        Time.timeScale = 1;
     }
 }
