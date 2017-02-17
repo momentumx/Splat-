@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour {
 	public static bool drag, cooling, playing;
 	float scale, shootSpeed = .8f, starY;
 	const uint starDist = 450U;
-	static public string[] kills = {"Single Kill", "Double Kill", "Triple Kill", "Quadra Kill", "Penta Kill", "Crazy Kill!", "Insane Kill!!", "MURDER!!!" };
+	static public string[] kills = {"Single Kill", "Double Kill", "Triple Kill", "Quadra Kill", "Penta Kill", "Crazy Kill!", "Insane Kill!!", "MURDER!!!", "UnbelIEVABLE!!!!", "UNREAL!!!!!", "WTF!!!!!!", "NO WAY!!!!!!!", "OMG!!!!!!!!" };
 	static Item[] allItems;
 	List<float> xs = new List<float>();
 	static Animator anim;
@@ -52,7 +52,7 @@ public class GameController : MonoBehaviour {
 		scale = transform.localScale.x;
 		kingItem = transform.GetChild ( 0 ).GetChild ( 0 ).GetComponent<SpriteRenderer> ();
 		kingItem.sprite = allItems [ 0 ].kingsItem;
-		starY = Camera.main.ScreenToWorldPoint ( GameObject.Find ( "Star1" ).transform.position ).y;
+		//starY = Camera.main.ScreenToWorldPoint ( GameObject.Find ( "Star1" ).transform.position ).y;
 		//mousepostext = GameObject.Find("mousepos").GetComponent<UnityEngine.UI.Text>();
 	}
 
@@ -97,7 +97,7 @@ public class GameController : MonoBehaviour {
 			transform.rotation = rot;
 			//kingPos.z = -camer.position.z;
 			kingPos = Camera.main.WorldToScreenPoint ( kingPos );
-			kingPos.y = 770f;
+			kingPos.y = Screen.height - 30; ;
 			transform.position = Camera.main.ScreenToWorldPoint(kingPos);
 			camer.position -= cameraSpeed * camer.position.z;
 		}

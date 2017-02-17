@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: SpeedsterORC
+  m_Controller: {fileID: 9100000, guid: 05d76f17e384fe144bf1144785f3161d, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: ab6654ad227a014498ef072d0e817119, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ffc27bbca93b58347ae42307145a2110, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f85d25d4e5b3bf6498fb3acf8dc4745e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 778cbdb22b1ae71468d55c9025279a87, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 4de60b624b384844197c054d97acc069, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 98902d098416dc74c9390fb8a29a3c40, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e68f2e40b6c02aa4cab455dd860e5768, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 14885107848fe0549baf5ae0d8d65854, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 3f7f077b1bfc0d84e929bf4b9bc0c6cf, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 94428d492ea5d2248addfe352ba3e459, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: bb25a16a4d3f79744a3513d17c18a949, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d1c146c8b0709e34fbd90abd285a4829, type: 2}

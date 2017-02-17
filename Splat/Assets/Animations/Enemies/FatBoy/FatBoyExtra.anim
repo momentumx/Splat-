@@ -1,0 +1,325 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!74 &7400000
+AnimationClip:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: FatBoyExtra
+  serializedVersion: 6
+  m_Legacy: 0
+  m_Compressed: 0
+  m_UseHighQualityCurve: 1
+  m_RotationCurves: []
+  m_CompressedRotationCurves: []
+  m_EulerCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: {x: 0, y: 0, z: -13.195001}
+        inSlope: {x: 0, y: 0, z: 37.533604}
+        outSlope: {x: 0, y: 0, z: 37.533604}
+        tangentMode: 0
+      - time: 0.41666666
+        value: {x: 0, y: 0, z: 2.444}
+        inSlope: {x: 0, y: 0, z: 29.044802}
+        outSlope: {x: 0, y: 0, z: 29.044802}
+        tangentMode: 0
+      - time: 1
+        value: {x: 0, y: 0, z: 14.435}
+        inSlope: {x: 0, y: 0, z: 20.556}
+        outSlope: {x: 0, y: 0, z: 20.556}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: ItemToEat
+  m_PositionCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: {x: 0.36000013, y: -0.25100064, z: -0.000004172325}
+        inSlope: {x: -0.23520027, y: 0.51600206, z: 0.00001308918}
+        outSlope: {x: -0.23520027, y: 0.51600206, z: 0.00001308918}
+        tangentMode: 0
+      - time: 0.41666666
+        value: {x: 0.26200002, y: -0.035999794, z: 0.0000012814999}
+        inSlope: {x: -0.31731436, y: 0.34628716, z: 0.000007872923}
+        outSlope: {x: -0.31731436, y: 0.34628716, z: 0.000007872923}
+        tangentMode: 0
+      - time: 1
+        value: {x: 0.029000092, y: 0.067000695, z: 0.0000028312206}
+        inSlope: {x: -0.39942843, y: 0.17657226, z: 0.000002656664}
+        outSlope: {x: -0.39942843, y: 0.17657226, z: 0.000002656664}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: ItemToEat
+  m_ScaleCurves: []
+  m_FloatCurves: []
+  m_PPtrCurves:
+  - curve:
+    - time: 0
+      value: {fileID: 21300148, guid: bc7ba0da38f59f042a314002ce61fdff, type: 3}
+    - time: 0.16666667
+      value: {fileID: 21300150, guid: bc7ba0da38f59f042a314002ce61fdff, type: 3}
+    - time: 0.33333334
+      value: {fileID: 21300152, guid: bc7ba0da38f59f042a314002ce61fdff, type: 3}
+    - time: 0.5
+      value: {fileID: 21300162, guid: bc7ba0da38f59f042a314002ce61fdff, type: 3}
+    - time: 0.6666667
+      value: {fileID: 21300148, guid: bc7ba0da38f59f042a314002ce61fdff, type: 3}
+    - time: 1
+      value: {fileID: 21300150, guid: bc7ba0da38f59f042a314002ce61fdff, type: 3}
+    attribute: m_Sprite
+    path: ChildObject
+    classID: 212
+    script: {fileID: 0}
+  m_SampleRate: 60
+  m_WrapMode: 0
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_ClipBindingConstant:
+    genericBindings:
+    - path: 584019944
+      attribute: 1
+      script: {fileID: 0}
+      classID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - path: 584019944
+      attribute: 4
+      script: {fileID: 0}
+      classID: 4
+      customType: 14
+      isPPtrCurve: 0
+    - path: 4037242626
+      attribute: 0
+      script: {fileID: 0}
+      classID: 212
+      customType: 23
+      isPPtrCurve: 1
+    pptrCurveMapping:
+    - {fileID: 21300148, guid: bc7ba0da38f59f042a314002ce61fdff, type: 3}
+    - {fileID: 21300150, guid: bc7ba0da38f59f042a314002ce61fdff, type: 3}
+    - {fileID: 21300152, guid: bc7ba0da38f59f042a314002ce61fdff, type: 3}
+    - {fileID: 21300162, guid: bc7ba0da38f59f042a314002ce61fdff, type: 3}
+    - {fileID: 21300148, guid: bc7ba0da38f59f042a314002ce61fdff, type: 3}
+    - {fileID: 21300150, guid: bc7ba0da38f59f042a314002ce61fdff, type: 3}
+  m_AnimationClipSettings:
+    serializedVersion: 2
+    m_AdditiveReferencePoseClip: {fileID: 0}
+    m_AdditiveReferencePoseTime: 0
+    m_StartTime: 0
+    m_StopTime: 1.0166667
+    m_OrientationOffsetY: 0
+    m_Level: 0
+    m_CycleOffset: 0
+    m_HasAdditiveReferencePose: 0
+    m_LoopTime: 1
+    m_LoopBlend: 0
+    m_LoopBlendOrientation: 0
+    m_LoopBlendPositionY: 0
+    m_LoopBlendPositionXZ: 0
+    m_KeepOriginalOrientation: 0
+    m_KeepOriginalPositionY: 1
+    m_KeepOriginalPositionXZ: 0
+    m_HeightFromFeet: 0
+    m_Mirror: 0
+  m_EditorCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0.36000013
+        inSlope: -0.23520027
+        outSlope: -0.23520027
+        tangentMode: 10
+      - time: 0.41666666
+        value: 0.26200002
+        inSlope: -0.31731436
+        outSlope: -0.31731436
+        tangentMode: 10
+      - time: 1
+        value: 0.029000092
+        inSlope: -0.39942843
+        outSlope: -0.39942843
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.x
+    path: ItemToEat
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: -0.25100064
+        inSlope: 0.51600206
+        outSlope: 0.51600206
+        tangentMode: 10
+      - time: 0.41666666
+        value: -0.035999794
+        inSlope: 0.34628716
+        outSlope: 0.34628716
+        tangentMode: 10
+      - time: 1
+        value: 0.067000695
+        inSlope: 0.17657226
+        outSlope: 0.17657226
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.y
+    path: ItemToEat
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: -0.000004172325
+        inSlope: 0.00001308918
+        outSlope: 0.00001308918
+        tangentMode: 10
+      - time: 0.41666666
+        value: 0.0000012814999
+        inSlope: 0.000007872923
+        outSlope: 0.000007872923
+        tangentMode: 10
+      - time: 1
+        value: 0.0000028312206
+        inSlope: 0.000002656664
+        outSlope: 0.000002656664
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.z
+    path: ItemToEat
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.41666666
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.x
+    path: ItemToEat
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.41666666
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.y
+    path: ItemToEat
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: -13.195001
+        inSlope: 37.533604
+        outSlope: 37.533604
+        tangentMode: 10
+      - time: 0.41666666
+        value: 2.444
+        inSlope: 29.044802
+        outSlope: 29.044802
+        tangentMode: 10
+      - time: 1
+        value: 14.435
+        inSlope: 20.556
+        outSlope: 20.556
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.z
+    path: ItemToEat
+    classID: 4
+    script: {fileID: 0}
+  m_EulerEditorCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: ItemToEat
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: ItemToEat
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: ItemToEat
+    classID: 4
+    script: {fileID: 0}
+  m_HasGenericRootTransform: 0
+  m_HasMotionFloatCurves: 0
+  m_GenerateMotionCurves: 0
+  m_Events:
+  - time: 1
+    functionName: SetSpeed
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0.3
+    intParameter: 0
+    messageOptions: 0

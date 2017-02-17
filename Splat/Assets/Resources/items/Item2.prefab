@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - component: {fileID: 446136}
   - component: {fileID: 21234558}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Item2 (1)
   m_TagString: Spear
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 9512370}
   - component: {fileID: 5065832}
   - component: {fileID: 61000012571204890}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Item2
   m_TagString: Spear
   m_Icon: {fileID: 0}
