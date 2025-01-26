@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour {
 	}
 	static public byte[] coolDowns = {5,5,5,5,5,5,5,5,5,5,5,5};
 	static public byte[] indexes = {0,1,2,3,4};
-	static public byte level = 0, minions = 0, currentItem, stars = 254, starStep;
+	static public byte level = 0, minions = 0, currentItem, stars = 6, starStep;
 
 	public static bool drag, cooling, playing;
 	float scale, shootSpeed = .8f, starY;
@@ -40,7 +40,7 @@ public class GameController : MonoBehaviour {
 			allItems [ i ].animator = GameObject.Find ( "Item" + i ).GetComponent<Animator> ();
 			allItems [ i ].dropItem = ( GameObject )Resources.Load ( "items/Item" + indexes [ i ] );
 			allItems [ i ].kingsItem = GameObject.Find ( "Item" + i ).GetComponent<UnityEngine.UI.Image> ().sprite;
-			if ( indexes [ i ] * 6 < GameController.stars + 1 )
+			if ( indexes [ i ] * 6 < stars + 1 )
 				allItems [ i ].unlocked = true;
 		}
 		audioSource = GetComponent<AudioSource> ();

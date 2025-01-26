@@ -1,85 +1,111 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class DraggableItemScript : MonoBehaviour {
-    bool drag = false, set = false, unlocked = true;
-    byte index, setIndex;
-    Vector2 pos, returnPos;
+public class DraggableItemScript : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler
+{
+	public static byte[] setItems;
+	Transform target;
+	// these take up 8 bytes so there is no reason NOT  to have 4 if you are going to have 1
+	byte index;
+	public bool unlocked, set;
 	// Use this for initialization
-	void Start () {
-        index = byte.Parse ( System.Text.RegularExpressions.Regex.Match ( transform.name, @"\d+" ).Value );
-        if ( index > GameController.stars / 6 + 1 ) {
-            unlocked = false;
-            Color color = GetComponent<UnityEngine.UI.Image> ().color;
-            color.a = .2f;
-            GetComponent<UnityEngine.UI.Image> ().color = color;
-        }
-        returnPos = transform.position;
-        if ( unlocked ) {
-            sbyte i =-1; while ( ++i != 5 )
-                if ( index == GameController.indexes [ i ] ) {
-                    pos = ( GameObject.Find ( "ItemPick" + i ).transform.position );
-                    setIndex = ( byte )i;
-                    set = true;
-                    transform.position = pos;
-                    return;
-                }
-        }
-        pos = returnPos;
-    }
+	void Start()
+	{
+		setItems = new byte[5];
+		index = byte.Parse(System.Text.RegularExpressions.Regex.Match(transform.name, @"\d+").Value);
+		unlocked = Unlocked();
+		if (!unlocked)
+		{
+			Color color = GetComponent<UnityEngine.UI.Image>().color;
+			color.a = .2f;
+			GetComponent<UnityEngine.UI.Image>().color = color;
+		}
+		else
+		{
+			sbyte i = -1; while (++i != 5)
+				if (index == GameController.indexes[i])
+				{
+					set = true;
+					ChangeTarget(GameObject.Find("ItemPick" + i).transform);
+					return;
+				}
+		}
+	}
 
-    void FixedUpdate () {
-        if ( drag ) {
-            Vector3 poss = Input.mousePosition;
-            poss.z = 2;
-            transform.position = poss;
-        }
-    }
+	public void ChangeTarget(Transform _target)
+	{
+		target = _target;
+		transform.position = target.position;
+	}
 
-    public void StartDrag () {
-        //this makes the item appear on top of everything else
-        if ( unlocked ) {
-            transform.SetSiblingIndex ( transform.parent.childCount - 1 );
-            drag = true;
-        }
-    }
+	public void OnDrag(PointerEventData eventData)
+	{
+		if (unlocked)// unlocked playerprefs
+			transform.position = Input.mousePosition;
+	}
 
-    public void StopDrag () {
-        drag = false;
-        Collider2D coll= Physics2D.OverlapCircle ( transform.position, 40f );
-        if ( coll ) {
-            DraggableItemScript draggable = coll.GetComponent<DraggableItemScript> ();
-            if ( draggable.unlocked ) {
-                if ( draggable.set ) {
-                    if ( set ) {
-                        setIndex ^= draggable.setIndex;
-                        draggable.setIndex ^= setIndex;
-                        setIndex ^= draggable.setIndex;
-                        GameController.indexes [ setIndex ] = index;
-                        GameController.indexes [ draggable.setIndex ] = draggable.index;
-                        Vector2 temp = pos;
-                        pos = draggable.pos;
-                        draggable.pos = temp;
-                        coll.transform.position = temp;
-                    } else {
-                        draggable.set = false;
-                        set = true;
-                        setIndex = draggable.setIndex;
-                        GameController.indexes [ setIndex ] = index;
-                        pos = draggable.pos;
-                        draggable.pos = draggable.returnPos;
-                        coll.transform.position = draggable.pos;
-                    }
-                } else if ( set ) {
-                    set = false;
-                    draggable.set = true;
-                    draggable.setIndex = setIndex;
-                    GameController.indexes [ draggable.setIndex ] = draggable.index;
-                    draggable.pos = pos;
-                    pos = returnPos;
-                    coll.transform.position = draggable.pos;
-                }
-            }
-        }
-        transform.position = pos;
-    }
+	public void OnEndDrag(PointerEventData eventData)
+	{
+		DraggableItemScript nearDraggable = null;
+		foreach (DraggableItemScript draggable in FindObjectsOfType<DraggableItemScript>())
+		{
+			if (draggable != this && Vector2.Distance(draggable.transform.position, transform.position) < 40f)
+			{
+				nearDraggable = draggable;
+				break;
+			}
+		}
+		Transform oldTarget = target;
+		if (nearDraggable && nearDraggable.unlocked)
+		{
+			set ^= nearDraggable.set;
+			nearDraggable.set ^= set;
+			set ^= nearDraggable.set;
+
+			target = nearDraggable.target;
+			nearDraggable.ChangeTarget(oldTarget);
+			if (set)
+			{
+				setItems[int.Parse(System.Text.RegularExpressions.Regex.Match(target.name, @"\d+").Value)] = index;
+			}
+
+			if (nearDraggable.set)
+			{
+				setItems[int.Parse(System.Text.RegularExpressions.Regex.Match(nearDraggable.target.name, @"\d+").Value)] = index;
+			}
+		}
+		transform.position = target.position;
+	}
+
+	public void OnBeginDrag(PointerEventData eventData)
+	{
+		transform.SetAsLastSibling();
+	}
+
+	public virtual bool Unlocked()
+	{
+		return index <= GameController.stars / 6 + 1;
+	}
+
+	public void ChangeUnlocked(bool _unlocked)
+	{
+		unlocked = _unlocked;
+		if (!unlocked)
+		{
+			Color color = GetComponent<UnityEngine.UI.Image>().color;
+			color.a = .2f;
+			GetComponent<UnityEngine.UI.Image>().color = color;
+		}
+	}
+
+	public void CheckUnlocked()
+	{
+		unlocked = Unlocked();
+		if (!unlocked)
+		{
+			Color color = GetComponent<UnityEngine.UI.Image>().color;
+			color.a = .2f;
+			GetComponent<UnityEngine.UI.Image>().color = color;
+		}
+	}
 }
